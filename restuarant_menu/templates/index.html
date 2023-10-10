@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-  <h1>Restaurant Menu</h1>
+  <h1>Peripheral</h1>
     <ul class="list-group list-group-flush">
         {% for meal in meals %}
             <h2 class="pt-5">{{ meal.1 }}</h2>
@@ -10,7 +10,10 @@
                         {% if row.status == 0 %}
                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 pb-0">
                             <a href="{% url 'menu_item' row.pk %}"><h3><del>{{ row.meal }}</del></h3></a>
-                            <span class="badge bg-primary rounded-pill">{{ row.price }}</span>
+                                <label class="checkbox-container">
+                                  <input type="checkbox">
+                                  <span class="checkmark"></span>
+                                </label>
                         </li>
                         <li class="list-group-item pt-0">
                             <p>{{ row.description }}</p>
@@ -18,7 +21,10 @@
                         {% else %}
                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 pb-0">
                             <a href="{% url 'menu_item' row.pk %}"><h3>{{ row.meal }}</h3></a>
-                            <span class="badge bg-primary rounded-pill">{{ row.price }}</span>
+                                <label class="checkbox-container">
+                                  <input type="checkbox">
+                                  <span class="checkmark"></span>
+                                </label>
                         </li>
                         <li class="list-group-item pt-0">
                             <p>{{ row.description }}</p>
@@ -28,5 +34,12 @@
                 {% endfor %}
         {% endfor %}
     </ul>
+    <div class="d-flex justify-content-center align-items-center">
+        <!-- Centered button -->
+        <button class="btn btn-primary">Proceed</button>
+    </div>
+
 </div>
 {% endblock content %}
+
+
