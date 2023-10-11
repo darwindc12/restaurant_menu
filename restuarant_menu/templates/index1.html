@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Data List</h1>
+<ul>
+    {% for item in data_list %}
+        <li>{{ item.meal }} - {{ item.description }}</li>
+        <!-- Add other fields as needed -->
+    {% endfor %}
+</ul>
+</body>
+</html>
